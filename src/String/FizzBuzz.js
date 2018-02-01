@@ -13,4 +13,4 @@ const fizzBuzz = (number) => {
     };
 };
 
-fizzBuzz(100);
+fizzBuzz(25);
