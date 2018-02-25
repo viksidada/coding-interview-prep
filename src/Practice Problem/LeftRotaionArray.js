@@ -25,4 +25,4 @@ const leftRotation = (n, d) => {
     return (myArray);
 }
 
-console.log(...leftRotation(5,3));
+console.log(...leftRotation(10,3));

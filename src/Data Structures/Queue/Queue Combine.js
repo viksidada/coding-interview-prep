@@ -1,4 +1,4 @@
-const Queue = require('./queue');
+const Queue = require('./Queue');
 
 const weave = (q1, q2) =>
 {
