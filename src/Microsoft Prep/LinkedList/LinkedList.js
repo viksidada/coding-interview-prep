@@ -15,29 +15,51 @@ class LinkedList {
     }
 
     insertLast(data) {
-
-        if(!this.head) {
-            this.head = new Node(data);
-            return;
-        }
+        let lastNode = new Node(data);
 
         let node = this.head;
-        // list.getLast().next = new Node(data);
 
-        while (node) {
-            if(!node.next) {
-                node.next = new Node(data);
-                return;
-            }
+        while (node.next) {
             node = node.next;
         }
+
+        node.next = lastNode;
+
     }
+
+    showList() {
+        if (!this.head) return null;
+
+        while (this.head) {
+            console.log(this.head.data);
+            this.head = this.head.next;
+        }
+
+        // console.log(this.head);
+    }
+
+    reverse(head) {
+        if (!head || !head.next) return head;
+
+        let newHead = reverse(head.next);
+        head.next.next = head;
+        head.next = null;
+        return newHead;
+    }
+
+
 }
 
-let list = new LinkedList();
-list.head = new Node(5);
-list.insertLast(10);
-list.insertLast(20);
-console.log(list);
-list.insertFirst(100);
-console.log(list);
+let linkedlist = new LinkedList();
+let node = new Node(5);
+
+linkedlist.head = node;
+linkedlist.insertFirst(100);
+linkedlist.insertFirst(200);
+// linkedlist.showList();
+linkedlist.insertLast(500);
+linkedlist.insertLast(300);
+console.log("after");
+// linkedlist.showList();
+console.log(linkedlist.reverse(linkedlist));
+linkedlist.showList();

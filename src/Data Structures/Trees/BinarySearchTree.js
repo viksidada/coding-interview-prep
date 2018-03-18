@@ -12,6 +12,7 @@ class BST {
     constructor() {
         this.root = null;
     }
+
     add(data) {
         const node = this.root;
         if (node === null) {
@@ -54,20 +55,20 @@ class BST {
         }
         return current.data;
     }
-    find(data) {
-        let current = this.root;
-        while (current.data !== data) {
-            if (data < current.data) {
-                current = current.left;
-            } else {
-                current = current.right;
-            }
-            if (current === null) {
-                return null;
-            }
-        }
-        return current;
-    }
+    // find(data) {
+    //     let current = this.root;
+    //     while (current.data !== data) {
+    //         if (data < current.data) {
+    //             current = current.left;
+    //         } else {
+    //             current = current.right;
+    //         }
+    //         if (current === null) {
+    //             return null;
+    //         }
+    //     }
+    //     return current;
+    // }
     isPresent(data) {
         let current = this.root;
         while (current) {
@@ -115,7 +116,7 @@ class BST {
                 node.right = removeNode(node.right, data);
                 return node;
             }
-        }
+        };
         this.root = removeNode(this.root, data);
     }
     isBalanced() {
@@ -139,6 +140,7 @@ class BST {
         };
         let left = this.findMaxHeight(node.left);
         let right = this.findMaxHeight(node.right);
+        // console.log(`left is ${left} and right is ${right}`);
         if (left > right) {
             return left + 1;
         } else {
@@ -224,15 +226,15 @@ bst.add(5);
 bst.add(7);
 bst.add(20);
 
-console.log(bst.findMinHeight());
-console.log(bst.findMaxHeight());
-console.log(bst.isBalanced());
+// console.log(bst.findMinHeight());
+// console.log(bst.findMaxHeight());
+// console.log(bst.isBalanced());
 bst.add(10);
-console.log(bst.findMinHeight());
-console.log(bst.findMaxHeight());
-console.log(bst.isBalanced());
-console.log('inOrder: ' + bst.inOrder());
-console.log('preOrder: ' + bst.preOrder());
-console.log('postOrder: ' + bst.postOrder());
-
+// console.log(bst.findMinHeight());
+// console.log(bst.findMaxHeight());
+// console.log(bst.isBalanced());
+// console.log('inOrder: ' + bst.inOrder());
+// console.log('preOrder: ' + bst.preOrder());
+// console.log('postOrder: ' + bst.postOrder());
+//
 console.log('levelOrder: ' + bst.levelOrder());

@@ -116,7 +116,7 @@ class LinkedList {
 
     removeAt(index) {
 
-        if(!this.head) return null;
+        if(!this.head) return;
 
         if(index === 0) {
             this.head = this.head.next;
@@ -125,19 +125,23 @@ class LinkedList {
 
         let node = this.head;
         let count = 0;
-        let previous = 'null';
+        let previous = this.getAt(index-1);
+        let forward = this.getAt(index+1);
 
-        while(node) {
-            if(index === count) {
-                previous.next = node.next;
-                return;
-            }
+        previous = forward;
 
-            previous = node;
-            node = node.next;
-            count++;
-        }
-        return null;
+
+        // while(node) {
+        //     if(index === count) {
+        //         previous.next = previous.next.next;
+        //         return;
+        //     }
+        //
+        //     // previous = node;
+        //     node = node.next;
+        //     count++;
+        // }
+        // return null;
     }
 }
 
